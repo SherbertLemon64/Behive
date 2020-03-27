@@ -1,2 +1,2 @@
 # Jam
-game jam about jam
+game jam about landscape and solidarity (not jam)
