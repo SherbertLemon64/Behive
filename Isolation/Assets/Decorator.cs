@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Decorator : VoxelGen
 {
-    GameManager 
-
-
-    private void Update() { }
-
     private void Start()
     {
         base.Start();
