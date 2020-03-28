@@ -6,7 +6,6 @@ public class Decorator : VoxelGen
 {
     private void Start()
     {
-        base.Start();
         Decorate();
     }
 

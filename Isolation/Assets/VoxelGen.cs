@@ -7,6 +7,7 @@ public class VoxelGen : MonoBehaviour
     public float freq = 1f;
     public float amp = 20f;
     public GameObject CurrentBlockType;
+    public GameObject Water;
     public List<GameObject> bloacks = new List<GameObject>();
     public List<Vector3> blockTransform = new List<Vector3>();
 
@@ -18,7 +19,7 @@ public class VoxelGen : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("k"))
         {
             Debug.Log(1);
             KillTerrain();
@@ -28,18 +29,37 @@ public class VoxelGen : MonoBehaviour
 
     void GenerateTerrain()
     {
+        float xSeed = Random.Range(0,1000);
+        float zSeed = Random.Range(0,1000);
+
         float cols = 64f;
         float rows = 64f;
 
-        for(float x = 0; x < cols; x++)
+        for(float x = xSeed; x < cols + xSeed; x++)
         {
             
-            for (float z = 0; z < rows; z++)
+            for (float z = zSeed; z < rows + zSeed; z++)
             {
                 float y = Mathf.PerlinNoise(x/(cols * freq), z/(rows * freq)) * amp;
-                blockTransform.Add(new Vector3(x,y,z));
+
+                if (y < 3)
+                {
+                    blockTransform.Add(new Vector3(x, 3, z));
+                    GameObject InsBlockW = GameObject.Instantiate(Water);
+                    InsBlockW.transform.position = new Vector3(x - xSeed, 3, z - zSeed);
+                    bloacks.Add(InsBlockW);
+                }
+                
+                blockTransform.Add(new Vector3(x, y, z));
+                GameObject InsBlock = GameObject.Instantiate(CurrentBlockType);
+                InsBlock.transform.position = new Vector3(x - xSeed, y, z - zSeed);
+                bloacks.Add(InsBlock);
+                
+                // Add this to add minceraft InsBlock.transform.position = new Vector3(x, (int)Mathf.Round(y), z);
+                
             }
         }
+        /*
         int index = 0;
         for (float x = 0; x < cols; x++)
         {
@@ -55,6 +75,7 @@ public class VoxelGen : MonoBehaviour
                 index++;
             }
         }
+        */
     }
 
     void KillTerrain ()

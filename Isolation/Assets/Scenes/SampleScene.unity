@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6d78a94f4f8dc41ad4d5136086943e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActiveItem: {fileID: 0}
 --- !u!1 &526102718
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1105006438}
   - component: {fileID: 1105006437}
+  - component: {fileID: 1105006439}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -699,6 +701,7 @@ MonoBehaviour:
   amp: 10
   CurrentBlockType: {fileID: 168601648647753074, guid: 652bab2b9cb7b67429331ec7df1c90d6,
     type: 3}
+  Water: {fileID: 0}
   bloacks: []
   blockTransform: []
 --- !u!4 &1105006438
@@ -715,6 +718,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1105006439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105006436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b75442a0841944e93f8f430d1831e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freq: 0.3
+  amp: 10
+  CurrentBlockType: {fileID: 168601648647753074, guid: 652bab2b9cb7b67429331ec7df1c90d6,
+    type: 3}
+  Water: {fileID: 5694701617041276347, guid: 55da14338e933654c9181798b9afda00, type: 3}
+  bloacks: []
+  blockTransform: []
 --- !u!1 &1654046912
 GameObject:
   m_ObjectHideFlags: 0
