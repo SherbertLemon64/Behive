@@ -37,7 +37,7 @@ public class VoxelGen : MonoBehaviour
             {
                 float y = Mathf.PerlinNoise(x/(cols * freq), z/(rows * freq)) * amp;
                 GameObject InsBlock = GameObject.Instantiate(CurrentBlockType);
-                InsBlock.transform.position = new Vector3(x, y, z);
+                InsBlock.transform.position = new Vector3(x, (int)Mathf.Round(y), z);
                 bloacks.Add(InsBlock);
             }
         }
