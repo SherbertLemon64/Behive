@@ -8,6 +8,7 @@ public class VoxelGen : MonoBehaviour
     public float amp = 20f;
     public GameObject CurrentBlockType;
     public List<GameObject> bloacks = new List<GameObject>();
+    public List<Vector3> blockTransform = new List<Vector3>();
 
 
     void Start()
@@ -36,9 +37,22 @@ public class VoxelGen : MonoBehaviour
             for (float z = 0; z < rows; z++)
             {
                 float y = Mathf.PerlinNoise(x/(cols * freq), z/(rows * freq)) * amp;
+                blockTransform.Add(new Vector3(x,y,z));
+            }
+        }
+        int index = 0;
+        for (float x = 0; x < cols; x++)
+        {
+            for (float z = 0; z < rows; z++)
+            {
                 GameObject InsBlock = GameObject.Instantiate(CurrentBlockType);
-                InsBlock.transform.position = new Vector3(x, (int)Mathf.Round(y), z);
+                InsBlock.transform.position = blockTransform[index];
+                for (int i = 0; i < 5; i++)
+                {
+                    // return for how many sides are next to and where
+                }
                 bloacks.Add(InsBlock);
+                index++;
             }
         }
     }
