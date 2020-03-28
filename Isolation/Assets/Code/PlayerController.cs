@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public float gravity = 9.81f * 2;
     public Transform cameraControl;
+    public bool isSprinting;
 
     float xRotation = 0f;
     Vector3 Velocity = Vector3.zero;
@@ -24,6 +25,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(controller.isGrounded && Velocity.y < 0)
+        {
+            Velocity.y = -5f;
+        }
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensetivty;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensetivty;
 
@@ -35,7 +41,19 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal") * Time.deltaTime;
         float z = Input.GetAxis("Vertical") * Time.deltaTime;
 
-        Vector3 move = (transform.right * x + transform.forward * z) * speed;
+        Vector3 move = (transform.right * x + transform.forward * z) * speed * (isSprinting ? 1.5f : 1f);
         controller.Move(move);
+
+        Velocity.y += -gravity * Time.deltaTime;
+        controller.Move(Velocity * Time.deltaTime);
+
+        if(Input.GetButtonDown("Jump"))
+            Velocity.y = jumpForce;
+
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            isSprinting = true;
+        if (Input.GetKeyUp(KeyCode.RightShift))
+            isSprinting = false;
     }
 }

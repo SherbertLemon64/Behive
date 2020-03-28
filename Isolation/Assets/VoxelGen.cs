@@ -11,7 +11,7 @@ public class VoxelGen : MonoBehaviour
     public List<Vector3> blockTransform = new List<Vector3>();
 
 
-    void Start()
+    public void Start()
     {
         GenerateTerrain();
     }
@@ -28,8 +28,8 @@ public class VoxelGen : MonoBehaviour
 
     void GenerateTerrain()
     {
-        float cols = 40f;
-        float rows = 40f;
+        float cols = 64f;
+        float rows = 64f;
 
         for(float x = 0; x < cols; x++)
         {
