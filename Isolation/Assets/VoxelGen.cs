@@ -27,8 +27,8 @@ public class VoxelGen : MonoBehaviour
 
     void GenerateTerrain()
     {
-        float cols = 20f;
-        float rows = 20f;
+        float cols = 40f;
+        float rows = 40f;
 
         for(float x = 0; x < cols; x++)
         {

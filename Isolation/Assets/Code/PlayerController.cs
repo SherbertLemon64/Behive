@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float mouseSensetivty = 3f;
+    public float speed = 3f;
+    public float jumpForce = 12f;
     public CharacterController controller;
-
+    public float gravity = 9.81f * 2;
     public Transform cameraControl;
 
     float xRotation = 0f;
+    Vector3 Velocity = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +35,7 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal") * Time.deltaTime;
         float z = Input.GetAxis("Vertical") * Time.deltaTime;
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = (transform.right * x + transform.forward * z) * speed;
         controller.Move(move);
     }
 }
