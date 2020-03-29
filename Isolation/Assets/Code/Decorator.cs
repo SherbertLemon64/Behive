@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class Decorator : VoxelGen
 {
+    public Decoratable[] treeTops;
+    public Decoratable[] treeTrunks;
+
+    private void Awake()
+    {
+        DecoDatabase.treeTops = this.treeTops;
+        DecoDatabase.treeTrunks = this.treeTrunks;
+    }
+
     private void Start()
     {
+        base.Start();
         Decorate();
     }
 
@@ -15,7 +25,7 @@ public class Decorator : VoxelGen
         {
             try
             {
-                Instantiate(bloacks[j], bloacks[j].transform.position + Vector3.up, Quaternion.identity);
+                Instantiate(new GameObject().AddComponent<Tree>(), bloacks[j].transform.position, Quaternion.identity);
             }
             catch
             {
@@ -23,4 +33,10 @@ public class Decorator : VoxelGen
             }
         }
     }
+}
+
+public static class DecoDatabase
+{
+    public static Decoratable[] treeTops;
+    public static Decoratable[] treeTrunks;
 }

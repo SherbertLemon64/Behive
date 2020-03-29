@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     public float speed = 3f;
     public float jumpForce = 12f;
     public CharacterController controller;
-    public float gravity = 9.81f * 2;
+    public float gravity = 9.81f * 3;
     public Transform cameraControl;
     public bool isSprinting;
+    public float dragOffset;
+    public Camera cam;
 
     float xRotation = 0f;
     Vector3 Velocity = Vector3.zero;
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
         Velocity.y += -gravity * Time.deltaTime;
         controller.Move(Velocity * Time.deltaTime);
 
-        if (Input.GetKeyDown("space") && controller.isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
         {
             Velocity.y += jumpForce;
         } else if(controller.isGrounded && Velocity.y < 0)
@@ -58,7 +60,6 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(0, 11, 0);
             Velocity = new Vector3(0,0,0);
         }
-
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
             isSprinting = true;
