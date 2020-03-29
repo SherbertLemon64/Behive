@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 public static class GameManager
 {
-    public static UnityEvent TICK;
+    // UPGRADEABLES
+    public static int ConverterPollenCapacity = 12 * 6;
 
+    public static BeehiveInit beehiveInit = new BeehiveInit();
     static uint _money;
 
     static public int Money
@@ -20,3 +22,5 @@ public static class GameManager
         }
     }
 }
+
+public class BeehiveInit : UnityEvent<Beehive> { }

@@ -62,12 +62,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Beehive.cs" />
+    <Compile Include="Assets\Code\Beehives\Beehive.cs" />
+    <Compile Include="Assets\Code\Beehives\BeehiveCollector.cs" />
+    <Compile Include="Assets\Code\Beehives\BeehiveConverter.cs" />
+    <Compile Include="Assets\Code\Decorator.cs" />
+    <Compile Include="Assets\Code\Interfaces.cs" />
+    <Compile Include="Assets\Code\Plants\Plant.cs" />
     <Compile Include="Assets\Code\PlayerController.cs" />
-    <Compile Include="Assets\Decorator.cs" />
+    <Compile Include="Assets\Code\VoxelGen.cs" />
     <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\PlayerShopper.cs" />
-    <Compile Include="Assets\VoxelGen.cs" />
+    <Compile Include="Assets\VOXFileLoader\Scripts\ObjFileExport.cs" />
+    <Compile Include="Assets\VOXFileLoader\Scripts\VOXCruncher.cs" />
+    <Compile Include="Assets\VOXFileLoader\Scripts\VOXFileImport.cs" />
+    <Compile Include="Assets\VOXFileLoader\Scripts\VOXHashMap.cs" />
+    <Compile Include="Assets\VOXFileLoader\Scripts\VOXModel.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/thoma/Documents/GitHub/Jam2/Isolation/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -330,7 +338,7 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XRModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>s
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.6f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

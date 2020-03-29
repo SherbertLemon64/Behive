@@ -11,7 +11,7 @@ public class Decorator : VoxelGen
 
     void Decorate()
     {
-        for(int j = 0; j < (bloacks.Count); j += 17 + Random.Range(0, 17))
+        for(int j = 0; j < (bloacks.Count); j += 14 + Random.Range(0, 14))
         {
             try
             {

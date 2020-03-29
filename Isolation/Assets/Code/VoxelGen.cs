@@ -26,7 +26,7 @@ public class VoxelGen : MonoBehaviour
             
         }
     }
-
+    
     void GenerateTerrain()
     {
         float xSeed = Random.Range(0,1000);
