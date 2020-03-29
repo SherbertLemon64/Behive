@@ -3,7 +3,10 @@ guid: 21b75442a0841944e93f8f430d1831e0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - CurrentBlockType: {fileID: 168601648647753074, guid: 652bab2b9cb7b67429331ec7df1c90d6,
+      type: 3}
+  - Water: {fileID: 5694701617041276347, guid: 55da14338e933654c9181798b9afda00, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -25,10 +25,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(controller.isGrounded && Velocity.y < 0)
-        {
-            Velocity.y = -5f;
-        }
+
+        
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensetivty;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensetivty;
@@ -47,8 +45,13 @@ public class PlayerController : MonoBehaviour
         Velocity.y += -gravity * Time.deltaTime;
         controller.Move(Velocity * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump"))
-            Velocity.y = jumpForce;
+        if (Input.GetKeyDown("space") && controller.isGrounded)
+        {
+            Velocity.y += jumpForce;
+        } else if(controller.isGrounded && Velocity.y < 0)
+        {
+            Velocity.y = 0f;
+        }
 
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
