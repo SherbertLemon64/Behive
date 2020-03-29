@@ -53,6 +53,12 @@ public class PlayerController : MonoBehaviour
             Velocity.y = 0f;
         }
 
+        if (transform.position.y < -20)
+        {
+            transform.position = new Vector3(0, 11, 0);
+            Velocity = new Vector3(0,0,0);
+        }
+
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
             isSprinting = true;
